@@ -24,8 +24,6 @@ from esphome.const import (
 
 DEPENDENCIES = ["i2c"]
 
-MULTI_CONF = True
-
 CONF_I2C_ADDR = 0X42
 
 M5Unit_ACMeasure_Sensor_ns = cg.esphome_ns.namespace("M5Unit_ACMeasure_Sensor")
@@ -72,8 +70,7 @@ CONFIG_SCHEMA = (
             # ),
         }
     )
-    .extend(cv.polling_component_schema("5s"))
-    .extend(cv.COMPONENT_SCHEMA)
+    .extend(cv.polling_component_schema("60s"))
     .extend(i2c.i2c_device_schema(CONF_I2C_ADDR))
 )
 
