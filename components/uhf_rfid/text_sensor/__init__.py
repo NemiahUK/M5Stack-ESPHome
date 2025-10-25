@@ -3,7 +3,7 @@ import esphome.config_validation as cv
 from esphome.components import uart, text_sensor
 from esphome.const import CONF_ID, CONF_UART_ID
 
-AUTO_LOAD = ["uart", "text_sensor"]
+AUTO_LOAD = ["uart"]  # it's a text_sensor platform, so no need to auto-load text_sensor
 
 uhf_ns = cg.esphome_ns.namespace("uhf_rfid")
 UhfRfid = uhf_ns.class_("UhfRfid", text_sensor.TextSensor, uart.UARTDevice, cg.Component)
